@@ -1,0 +1,53 @@
+export const experiences = [
+  {
+    id: 1,
+    role: 'Quality Assurance Engineer',
+    company: 'Root Level Pvt. Ltd.',
+    location: 'Kathmandu, Nepal',
+    period: '05/2025 – Present',
+    current: true,
+    bullets: [],
+  },
+  {
+    id: 2,
+    role: 'QA Intern',
+    company: 'Root Level Pvt. Ltd.',
+    location: 'Golfutar, Budhanilkantha',
+    period: '08/2024 – 05/2025',
+    current: false,
+    bullets: [
+      'Performed manual, regression, smoke, sanity, responsive, and cross-browser testing across multiple devices and platforms.',
+      'Designed and executed test cases, test plans, and defect reports using Shortcut and Jira.',
+      'Implemented end-to-end automation testing using Playwright and Cypress with JavaScript.',
+      'Conducted API testing and backend validation using Postman — verifying requests, responses, auth, and status codes.',
+      'Collaborated in Agile/Scrum environments to identify, reproduce, and resolve defects across the SDLC/STLC.',
+    ],
+  },
+  {
+    id: 3,
+    role: 'Computer Teacher & IT Coordinator',
+    company: 'Jyovo Kadampa English School',
+    location: 'Arubari, Kathmandu',
+    period: '01/2022 – 03/2023',
+    current: false,
+    bullets: [
+      'Taught basic computer skills and software applications to students.',
+      'Prepared and managed student result records with full confidentiality.',
+      'Oversaw school IT systems and ensured smooth network operations.',
+    ],
+  },
+  {
+    id: 4,
+    role: 'Ethical Hacking Intern',
+    company: 'SB Computer',
+    location: 'New Baneshwor, Kathmandu',
+    period: '06/2022 – 01/2023',
+    current: false,
+    bullets: [
+      'Conducted web and application penetration testing to identify security vulnerabilities.',
+      'Performed SQL injection and OWASP Top 10 security tests.',
+      'Used tools: Burp Suite, Nmap, Kali Linux, OWASP ZAP.',
+      'Participated in bug hunting programs; completed CEH v10 training.',
+    ],
+  },
+];

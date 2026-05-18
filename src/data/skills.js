@@ -1,0 +1,49 @@
+export const skillCategories = [
+  {
+    id: 1,
+    icon: '🧪',
+    title: 'Testing Tools',
+    items: ['Playwright', 'Cypress', 'Postman', 'JMeter', 'Appium', 'Maestro'],
+  },
+  {
+    id: 2,
+    icon: '🔍',
+    title: 'Testing Types',
+    items: [
+      'Automation Testing',
+      'Manual Testing',
+      'API Testing',
+      'API Automation',
+      'Regression Testing',
+      'Smoke Testing',
+      'Sanity Testing',
+      'Stress Testing',
+      'Cross-Browser Testing',
+      'Responsive Testing',
+    ],
+  },
+  {
+    id: 3,
+    icon: '💻',
+    title: 'Technologies',
+    items: ['JavaScript', 'Python', 'Java', 'HTML', 'CSS', 'MySQL', 'C'],
+  },
+  {
+    id: 4,
+    icon: '🔐',
+    title: 'Security Tools',
+    items: ['Kali Linux', 'Burp Suite', 'Nmap', 'OWASP ZAP'],
+  },
+  {
+    id: 5,
+    icon: '⚙️',
+    title: 'Processes',
+    items: ['SDLC', 'STLC', 'Test Case Design', 'Test Documentation', 'Defect Lifecycle Management'],
+  },
+  {
+    id: 6,
+    icon: '🛠️',
+    title: 'Tools & CI/CD',
+    items: ['Jira', 'Shortcut', 'Jenkins', 'GitHub Actions', 'Git'],
+  },
+];
