@@ -30,8 +30,6 @@ export const metadata = {
     canonical: "/"
   },
 
-  themeColor: "#e85d04",
-
   openGraph: {
     title: "Milan Bomjan Tamang | QA Automation Engineer",
     description:
@@ -69,10 +67,14 @@ export const metadata = {
     }
   },
 
-  // ✅ THIS IS THE CORRECT PLACE
   verification: {
     google: "DyhkAT-goLeQnjNDUU-mLVxZPR1ajZAW2H7gJPmJEa0"
   }
+};
+
+// ✅ FIX: themeColor moved here
+export const viewport = {
+  themeColor: "#e85d04"
 };
 
 export default function RootLayout({ children }) {
