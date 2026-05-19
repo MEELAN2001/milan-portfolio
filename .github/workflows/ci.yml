@@ -9,9 +9,17 @@ on:
     branches:
       - main
 
+# Prevent multiple duplicate workflows
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: 20
+
 jobs:
   lint:
-    name: ESLint Check
+    name: ESLint Validation
     runs-on: ubuntu-latest
 
     steps:
@@ -21,7 +29,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: npm
 
       - name: Install Dependencies
@@ -42,7 +50,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: npm
 
       - name: Install Dependencies
@@ -59,3 +67,4 @@ jobs:
         with:
           name: next-build
           path: .next
+          retention-days: 7
