@@ -10,15 +10,17 @@ import Contact    from '@/components/sections/Contact';
 
 export default function Home() {
   return (
-    <main>
+    <main className="w-full">
       <Navbar />
-      <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Resume />
-      <Contact />
+      <div className="container mx-auto px-4 py-8 space-y-12">
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <Projects />
+        <Resume />
+        <Contact />
+      </div>
       <Footer />
     </main>
   );
