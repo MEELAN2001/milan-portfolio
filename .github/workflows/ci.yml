@@ -9,7 +9,6 @@ on:
     branches:
       - main
 
-# Prevent multiple duplicate workflows
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
@@ -39,7 +38,7 @@ jobs:
         run: npm run lint
 
   build:
-    name: Production Build
+    name: Production Build + Lighthouse CI
     needs: lint
     runs-on: ubuntu-latest
 
@@ -61,6 +60,24 @@ jobs:
 
       - name: Verify Build Output
         run: test -d .next
+
+      # ===============================
+      # Lighthouse CI SECTION (FIXED)
+      # ===============================
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli wait-on
+
+      - name: Start Next.js Server
+        run: npm run start &
+
+      - name: Wait for Server to be Ready
+        run: npx wait-on http://localhost:3000
+
+      - name: Run Lighthouse CI
+        run: lhci autorun
+
+      # ===============================
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
