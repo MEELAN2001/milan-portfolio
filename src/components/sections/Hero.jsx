@@ -7,34 +7,48 @@ export default function Hero() {
       <div className="hero-glow-2" />
 
       <div className="hero-content">
-        <p className="hero-tag">Quality Assurance Engineer</p>
+
+        {/* SEO TAG */}
+        <p className="hero-tag">
+          QA Automation Engineer | Playwright | Cypress | API Testing | CI/CD
+        </p>
+
+        {/* NAME (SEO STRONG) */}
         <h1>
           Milan<br />
           <span className="highlight">Bomjan</span><br />
           Tamang
         </h1>
+
+        {/* ROLE KEYWORD LINE */}
         <p className="hero-subtitle">
-          Testing · Automation · <span>Security</span>
+          QA Automation Engineering · Test Automation · <span>CI/CD Integration</span>
         </p>
+
+        {/* SEO DESCRIPTION (IMPORTANT PART) */}
         <p className="hero-desc">
-          Building confidence in software through rigorous manual &amp; automated testing,
-          Playwright, Cypress, Postman, Jmeter, Maestro, Appium, Burpsuite, <strong>OWASP ZAP</strong> — and a background in ethical hacking.
+          I am a QA Automation Engineer specializing in Playwright, Cypress, API Testing, and CI/CD automation using JavaScript. 
+          I build scalable test automation frameworks that improve software quality, reduce manual testing effort, and ensure reliable releases.
+
           <span className="cursor" />
         </p>
+
+        {/* CTA */}
         <div className="hero-cta">
           <Button href="#experience" variant="primary">View Experience →</Button>
           <Button href="#contact" variant="secondary">Get in Touch</Button>
         </div>
       </div>
 
+      {/* STATS */}
       <div className="hero-stats">
         <div className="stat">
           <div className="stat-num">1.5+</div>
-          <div className="stat-label">Years Experience</div>
+          <div className="stat-label">Years QA Automation Experience</div>
         </div>
         <div className="stat">
           <div className="stat-num">4+</div>
-          <div className="stat-label">Projects Shipped</div>
+          <div className="stat-label">Automation Projects</div>
         </div>
       </div>
     </section>
