@@ -1,230 +1,226 @@
-# Milan Bomjan - QA Engineer Portfolio
 
-A modern, interactive portfolio website showcasing my journey as a Quality Assurance Engineer with expertise in test automation, security testing, and SDLC processes.
+---
 
-![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js)
-![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Playwright](https://img.shields.io/badge/Playwright-00B300?style=for-the-badge)
+````md
+# 🚀 Milan Bomjan Tamang — QA Automation Engineer Portfolio
 
-## 🌐 Live Demo
+A modern, responsive portfolio built with **Next.js**, showcasing my expertise as a **QA Automation Engineer (SDET)** with a strong focus on:
+- Test Automation (Playwright, Cypress)
+- API Testing
+- CI/CD Pipelines using GitHub Actions
+- Performance & Quality Engineering
 
-[View Portfolio](https://milan-portfolio-demo.vercel.app) *(Add your deployed URL)*
+---
 
-## ✨ Features
+## 🌐 Live Website
 
-- **Modern & Responsive Design** - Optimized for all devices (mobile, tablet, desktop)
-- **Interactive Carousels** - Horizontal carousel navigation for Skills and Projects
-- **Smooth Animations** - Engaging transitions and fade-in effects
-- **Professional Typography** - Custom fonts with optimal readability
-- **Contact Integration** - Direct links to email, phone, and social profiles (LinkedIn, GitHub, Facebook)
-- **Resume Download** - One-click PDF resume download
-- **Dark/Light Theme Ready** - Custom CSS variables for easy theming
+👉 https://milanbomjantamang.com.np
+
+---
+
+## ⚙️ CI/CD Status
+
+![CI](https://github.com/MEELAN2001/milan-portfolio/actions/workflows/ci.yml/badge.svg)
+
+---
+
+## 🧠 Project Overview
+
+This portfolio is not just a personal website — it demonstrates a **production-grade frontend engineering and QA automation workflow**.
+
+It includes:
+
+- Continuous Integration (CI) with GitHub Actions
+- Automated linting (ESLint)
+- Production build validation (Next.js)
+- Performance testing (Lighthouse CI)
+- Automatic deployment via Vercel
+
+---
+
+## 🧪 CI/CD Pipeline
+
+Every push to the `main` branch triggers:
+
+```text
+1. ESLint Validation (Code Quality)
+2. Production Build (Next.js)
+3. Build Verification
+4. Lighthouse Performance Audit
+5. Vercel Deployment (Automatic)
+````
+
+---
+
+## 🏗️ Architecture
+
+```text
+GitHub Repository
+      ↓
+GitHub Actions (CI Pipeline)
+  ├── ESLint (Code Quality Check)
+  ├── Next.js Build Validation
+  ├── Lighthouse CI (Performance Testing)
+      ↓
+Vercel (Production Deployment) 🚀
+```
+
+---
 
 ## 🛠️ Tech Stack
 
-**Frontend:**
-- Next.js 14+ (React framework)
-- React 18+ (UI library)
-- CSS3 (Custom styling with variables)
-- React Icons (Icon library)
+### Frontend
 
-**Tools & Testing:**
-- ESLint (Code quality)
-- JavaScript ES6+
+* Next.js
+* React
+* Tailwind CSS
+* Framer Motion
+* React Icons
 
-**Deployment:**
-- Vercel (Recommended)
-- GitHub Pages
+### Quality Engineering / DevOps
 
-## 📁 Project Structure
+* GitHub Actions (CI/CD)
+* ESLint (Code Quality)
+* Lighthouse CI (Performance & SEO Testing)
+* npm audit (Security validation)
 
-```
-src/
-├── app/
-│   ├── globals.css           # Global styles & responsive breakpoints
-│   ├── layout.js             # Root layout component
-│   └── page.js               # Home page
-├── components/
-│   ├── layout/
-│   │   ├── Navbar.jsx        # Navigation header
-│   │   └── Footer.jsx        # Footer section
-│   ├── sections/
-│   │   ├── Hero.jsx          # Hero section
-│   │   ├── About.jsx         # About me with profile image
-│   │   ├── Skills.jsx        # Skills carousel
-│   │   ├── Experience.jsx    # Work experience
-│   │   ├── Projects.jsx      # Projects carousel
-│   │   ├── Resume.jsx        # Education & resume download
-│   │   └── Contact.jsx       # Contact information
-│   └── ui/
-│       ├── Button.jsx        # Reusable button component
-│       ├── Container.jsx     # Layout container
-│       └── SectionTitle.jsx  # Section title component
-├── data/
-│   ├── skills.js             # Skills categories
-│   ├── projects.js           # Project data
-│   ├── experience.js         # Work experience data
-│   └── resume.pdf            # Resume file
-└── lib/
-    └── utils.js              # Utility functions
-```
+### Deployment
+
+* Vercel (Automatic CI/CD hosting)
+
+---
+
+## 🧪 Quality Assurance Features
+
+This project enforces automated quality checks:
+
+* ✔ Code linting (ESLint)
+* ✔ Production build validation
+* ✔ Performance scoring (Lighthouse)
+* ✔ Accessibility compliance
+* ✔ SEO optimization checks
+
+---
 
 ## 🚀 Getting Started
 
-### Prerequisites
-- Node.js 16+ 
-- npm or yarn
+### 1. Clone repository
 
-### Installation
-
-1. **Clone the repository:**
 ```bash
 git clone https://github.com/MEELAN2001/milan-portfolio.git
 cd milan-portfolio
 ```
 
-2. **Install dependencies:**
+### 2. Install dependencies
+
 ```bash
 npm install
 ```
 
-3. **Run the development server:**
+### 3. Run development server
+
 ```bash
 npm run dev
 ```
 
-4. **Open in browser:**
-Navigate to [http://localhost:3000](http://localhost:3000)
+### 4. Open in browser
 
-## 📝 Customization
+[http://localhost:3000](http://localhost:3000)
 
-### Update Personal Information
+---
 
-**Edit `src/components/sections/About.jsx`:**
-- Change bio text
-- Update location, email, phone
-- Modify professional details
+## 🔧 Build & Deployment
 
-**Edit `src/data/skills.js`:**
-- Add/remove skill categories
-- Update technology lists
-
-**Edit `src/data/projects.js`:**
-- Add new projects
-- Update GitHub links and descriptions
-
-**Edit `src/data/experience.js`:**
-- Update work experience
-- Add education details
-
-### Add Resume
-
-Replace `public/Milan_Resume.pdf` with your own resume file. The download link is configured in [src/components/sections/Resume.jsx](src/components/sections/Resume.jsx).
-
-### Update Social Links
-
-Edit `src/components/sections/Contact.jsx`:
-- LinkedIn profile URL
-- GitHub profile URL
-- Facebook profile URL
-
-## 🎨 Design Features
-
-**Color Scheme:**
-- Primary Accent: `#e85d04` (Orange)
-- Secondary Accent: `#b54a00` (Dark Orange)
-- Background: `#fafaf8` (Light cream)
-- Cards: `#f3f2ee` (Light beige)
-
-**Typography:**
-- Display Font: Fraunces (serif)
-- Mono Font: Space Mono (monospace)
-
-**Responsive Breakpoints:**
-- Desktop: 1200px+
-- Tablet: 768px - 1199px
-- Mobile: 320px - 767px
-
-## 📊 Sections Overview
-
-| Section | Description |
-|---------|------------|
-| **Hero** | Welcome message with CTA buttons |
-| **About** | Profile picture, bio, and contact details |
-| **Skills** | Interactive carousel of technical skills |
-| **Experience** | Professional work experience timeline |
-| **Projects** | Carousel showcasing completed projects with links |
-| **Resume** | Education and resume download button |
-| **Contact** | Social media links and contact information |
-
-## 🎯 Key Components
-
-### Skills Carousel
-- One skill category at a time
-- Left/right arrow navigation
-- Dot indicators for position tracking
-- Smooth slide animations
-
-### Projects Carousel
-- Full project details (title, description, stack, links)
-- Navigation arrows
-- Dot indicators
-- GitHub repo and live demo links
-
-## 📱 Responsive Design
-
-All components are fully responsive with optimized layouts for:
-- ✅ Desktop (1200px+)
-- ✅ Tablet (768px - 1199px)
-- ✅ Mobile (320px - 767px)
-
-## 🔧 Build & Deploy
-
-### Build for Production
+### Production Build
 
 ```bash
 npm run build
 ```
 
-### Deploy to Vercel
+### Deployment
 
-1. Push to GitHub
-2. Connect repository to Vercel
-3. Automatic deployments on push
-
-[Learn more about Vercel Deployment](https://vercel.com/docs)
-
-### Deploy to GitHub Pages
-
-```bash
-npm run export
-# Upload /out folder to GitHub Pages
-```
-
-## 📞 Contact Information
-
-- **Email:** mailmilan.bomjan@gmail.com
-- **Phone:** +977 9841907159
-- **Location:** Kathmandu, Nepal
-- **LinkedIn:** [milan-bomjan-tamang](https://linkedin.com/in/milan-bomjan-tamang-918167239/)
-- **GitHub:** [@MEELAN2001](https://github.com/MEELAN2001)
-
-## 📄 License
-
-This project is open source and available under the MIT License.
-
-## 🤝 Contributing
-
-Feel free to fork this project, make improvements, and submit pull requests. Any suggestions and feedback are welcome!
-
-## 🙏 Acknowledgments
-
-- Next.js team for the amazing framework
-- React community for excellent libraries
-- Vercel for hosting and deployment tools
-- Font designers for Fraunces and Space Mono
+* Push to `main` branch
+* Vercel automatically builds and deploys
 
 ---
 
-**Made with ❤️ by Milan Bomjan**
+## 📊 Performance & Quality
+
+This project is continuously monitored for:
+
+* ⚡ Performance (Lighthouse Score)
+* ♿ Accessibility compliance
+* 🔍 SEO optimization
+* 🧪 Code quality through CI pipeline
+
+---
+
+## 📁 Project Structure
+
+```text
+src/
+├── app/           # Next.js App Router
+├── components/    # UI Components
+├── data/          # Portfolio content
+├── lib/           # Utility functions
+└── styles/        # Global styles
+```
+
+---
+
+## 📬 Contact
+
+* 📧 Email: [mailmilan.bomjan@gmail.com](mailto:mailmilan.bomjan@gmail.com)
+* 📍 Location: Kathmandu, Nepal
+* 💼 LinkedIn: [https://linkedin.com/in/milan-bomjan-tamang](https://linkedin.com/in/milan-bomjan-tamang)
+* 💻 GitHub: [https://github.com/MEELAN2001](https://github.com/MEELAN2001)
+
+---
+
+## 🏁 Status
+
+🟢 CI Pipeline: Active
+🟢 Deployment: Vercel (Auto)
+🟢 Performance Testing: Lighthouse CI Enabled
+
+---
+
+## ⭐ Key Takeaway
+
+This project demonstrates:
+
+* Real-world CI/CD implementation
+* QA Automation mindset (SDET approach)
+* Performance engineering practices
+* Production-ready frontend architecture
+
+---
+
+**Built with precision, automation, and quality engineering mindset 🚀**
+
+```
+
+---
+
+# 🚀 What makes this version FINAL (important)
+
+✔ Clean structure (no repetition)  
+✔ Strong QA/SDET positioning  
+✔ Real CI/CD explanation  
+✔ Professional architecture diagram  
+✔ Recruiter-friendly wording  
+✔ No unnecessary sections  
+✔ Consistent tech stack  
+
+---
+
+If you want next upgrade, I can help you make it even more powerful with:
+
+👉 :contentReference[oaicite:0]{index=0}  
+👉 :contentReference[oaicite:1]{index=1}  
+👉 :contentReference[oaicite:2]{index=2}  
+👉 :contentReference[oaicite:3]{index=3}  
+👉 :contentReference[oaicite:4]{index=4}
+
+Just say 👍
+```
