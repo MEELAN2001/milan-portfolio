@@ -8,13 +8,13 @@ export default function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
-    setCurrentIndex((prev) => 
+    setCurrentIndex((prev) =>
       prev === 0 ? projects.length - 1 : prev - 1
     );
   };
 
   const goToNext = () => {
-    setCurrentIndex((prev) => 
+    setCurrentIndex((prev) =>
       prev === projects.length - 1 ? 0 : prev + 1
     );
   };
@@ -23,11 +23,22 @@ export default function Projects() {
 
   return (
     <section id="projects">
+
+      {/* SEO HEADER BLOCK (IMPORTANT FOR GOOGLE) */}
+      <div className="projects-seo-intro">
+        <h2>QA Automation Projects</h2>
+        <p>
+          These projects demonstrate QA Automation Engineering using Playwright, Cypress, JavaScript, API Testing, and CI/CD integration.
+          Each project focuses on building scalable test automation frameworks, end-to-end testing, and real-world QA engineering practices.
+        </p>
+      </div>
+
       <SectionTitle num="03" title="Projects" />
 
       <div className="projects-carousel">
-        <button 
-          className="carousel-arrow carousel-arrow-left" 
+
+        <button
+          className="carousel-arrow carousel-arrow-left"
           onClick={goToPrevious}
           aria-label="Previous project"
         >
@@ -36,14 +47,29 @@ export default function Projects() {
 
         <div className="projects-carousel-container">
           <div className="project-card-carousel">
+
+            {/* SEO ENHANCED CONTENT */}
             <div className="project-num">{currentProject.num}</div>
             <div className="project-title">{currentProject.title}</div>
-            <p className="project-desc">{currentProject.description}</p>
+
+            <p className="project-desc">
+              {currentProject.description}
+            </p>
+
+            {/* SEO HIDDEN CONTEXT (IMPORTANT BOOST) */}
+            <div className="sr-only">
+              QA Automation Engineer project using Playwright, Cypress, JavaScript, API Testing, and CI/CD automation.
+              Focus on end-to-end testing, regression testing, and scalable test framework design.
+            </div>
+
             <div className="project-stack">
               {currentProject.stack.map((tech) => (
-                <span key={tech} className="stack-tag">{tech}</span>
+                <span key={tech} className="stack-tag">
+                  {tech}
+                </span>
               ))}
             </div>
+
             <div className="project-links">
               {currentProject.github && (
                 <a
@@ -66,16 +92,18 @@ export default function Projects() {
                 </a>
               )}
             </div>
+
           </div>
         </div>
 
-        <button 
-          className="carousel-arrow carousel-arrow-right" 
+        <button
+          className="carousel-arrow carousel-arrow-right"
           onClick={goToNext}
           aria-label="Next project"
         >
           →
         </button>
+
       </div>
 
       <div className="carousel-indicators">
@@ -88,6 +116,7 @@ export default function Projects() {
           />
         ))}
       </div>
+
     </section>
   );
 }
