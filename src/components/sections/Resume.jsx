@@ -37,16 +37,30 @@ export default function Resume() {
 
       {/* Resume Download */}
       <div className="resume-download">
-        <p className="resume-download-text">Want the full picture?</p>
-        <Button
-          href="/Milan_Resume.pdf"
-          download="Milan_Resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          variant="secondary"
-        >
-          Download Resume ↓
-        </Button>
+        <div className="resume-content">
+          <h3 className="resume-heading">Want the full picture?</h3>
+          <p className="resume-description">Download my resume to see detailed experience, projects, and technical skills.</p>
+        </div>
+        
+        <div className="resume-buttons">
+          <a
+            href="/Milan_Resume.pdf"
+            download="Milan_Resume.pdf"
+            className="resume-btn resume-btn-primary"
+            title="Download PDF"
+          >
+            Download Resume
+          </a>
+          <a
+            href="https://linkedin.com/in/milan-bomjan"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="resume-btn resume-btn-secondary"
+            title="View on LinkedIn"
+          >
+            LinkedIn
+          </a>
+        </div>
       </div>
     </section>
   );
