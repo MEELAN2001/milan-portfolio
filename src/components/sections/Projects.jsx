@@ -41,12 +41,6 @@ export default function Projects() {
                 <p className="project-card-desc">{project.description}</p>
               </div>
 
-              {/* SEO HIDDEN CONTEXT */}
-              <div className="sr-only">
-                QA Automation Engineer project using Playwright, Cypress, JavaScript, API Testing, and CI/CD automation.
-                Focus on end-to-end testing, regression testing, and scalable test framework design.
-              </div>
-
               {/* Tech Stack */}
               <div className="project-stack">
                 {project.stack.map((tech, idx) => (

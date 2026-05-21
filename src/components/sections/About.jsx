@@ -50,26 +50,34 @@ export default function About() {
             <div className="about-details">
 
               <div className="about-detail-item">
-                <span className="about-detail-label">Location</span>
+                <span className="about-detail-label">
+                  <span className="detail-icon">📍</span> Location
+                </span>
                 <span className="about-detail-value">Kathmandu, Nepal</span>
               </div>
 
               <div className="about-detail-item">
-                <span className="about-detail-label">Email</span>
+                <span className="about-detail-label">
+                  <span className="detail-icon">✉️</span> Email
+                </span>
                 <a href="mailto:mailmilan.bomjan@gmail.com" className="about-detail-value about-link">
                   mailmilan.bomjan@gmail.com
                 </a>
               </div>
 
               <div className="about-detail-item">
-                <span className="about-detail-label">Phone</span>
+                <span className="about-detail-label">
+                  <span className="detail-icon">📱</span> Phone
+                </span>
                 <a href="tel:+9779841907159" className="about-detail-value about-link">
                   +977 9841907159
                 </a>
               </div>
 
               <div className="about-detail-item">
-                <span className="about-detail-label">Status</span>
+                <span className="about-detail-label">
+                  <span className="detail-icon">✓</span> Status
+                </span>
                 <span className="about-detail-value about-status">
                   <span className="status-dot" /> Open to QA Automation & SDET opportunities
                 </span>
