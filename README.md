@@ -1,230 +1,167 @@
-# Milan Bomjan - QA Engineer Portfolio
+# 🚀 Milan Bomjan - QA Automation Engineer Portfolio
 
-A modern, interactive portfolio website showcasing my journey as a Quality Assurance Engineer with expertise in test automation, security testing, and SDLC processes.
+A modern, interactive portfolio website showcasing my journey as a **Quality Assurance Engineer (SDET)** with expertise in:
+
+- Test Automation (Playwright)
+- API Testing
+- CI/CD Pipelines
+- SDLC & Agile Processes
+- Performance & Quality Engineering
+- Frontend Engineering (Next.js)
+
+---
 
 ![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js)
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DFE1?style=for-the-badge&logo=javascript&logoColor=black)
 ![Playwright](https://img.shields.io/badge/Playwright-00B300?style=for-the-badge)
+![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub_Actions-blue?style=for-the-badge)
+
+---
 
 ## 🌐 Live Demo
 
-[View Portfolio](https://milan-portfolio-demo.vercel.app) *(Add your deployed URL)*
+👉 https://milanbomjantamang.com.np
 
-## ✨ Features
+---
 
-- **Modern & Responsive Design** - Optimized for all devices (mobile, tablet, desktop)
-- **Interactive Carousels** - Horizontal carousel navigation for Skills and Projects
-- **Smooth Animations** - Engaging transitions and fade-in effects
-- **Professional Typography** - Custom fonts with optimal readability
-- **Contact Integration** - Direct links to email, phone, and social profiles (LinkedIn, GitHub, Facebook)
-- **Resume Download** - One-click PDF resume download
-- **Dark/Light Theme Ready** - Custom CSS variables for easy theming
+## ⚙️ CI/CD Status
+
+![CI](https://github.com/MEELAN2001/milan-portfolio/actions/workflows/ci.yml/badge.svg)
+
+---
+
+## 🧠 Project Overview
+
+This portfolio is not just a personal website — it demonstrates a **real-world production engineering workflow**.
+
+It showcases:
+
+- Automated CI pipeline using GitHub Actions
+- Code quality enforcement (ESLint)
+- Production build validation (Next.js)
+- Performance auditing using Lighthouse CI
+- Automated deployment via Vercel
+- SEO optimization with metadata & OpenGraph
+
+---
+
+
+## 🧪 CI/CD Pipeline
+
+Every push triggers the following steps:
+
+1. Code Checkout  
+2. ESLint Validation (Code Quality)  
+3. Production Build (Next.js)  
+4. Build Verification  
+5. Lighthouse Performance Audit  
+6. Automatic Deployment (Vercel)
+
+---
+
+## 🏗️ DevOps & Quality Engineering Focus
+
+This project follows modern **DevOps + QA best practices**:
+
+### ✔ Continuous Integration
+- Automated linting  
+- Build validation on every commit  
+- Failure prevention before deployment  
+
+### ✔ Quality Assurance
+- Lighthouse performance testing  
+- Accessibility checks  
+- SEO validation  
+
+### ✔ Deployment Automation
+- Zero-downtime deployments via Vercel  
+- Git-based deployment pipeline  
+- Automatic production updates  
+
+---
+
+## 🚀 Key Features
+
+- ⚡ High-performance Next.js architecture  
+- 🎨 Modern UI with smooth animations  
+- 📱 Fully responsive design (mobile-first)  
+- 🔍 SEO optimized (metadata + OpenGraph)  
+- 🧪 Automated CI/CD pipeline  
+- 🚀 Instant production deployment  
+- ♿ Accessibility-friendly design  
+
+---
 
 ## 🛠️ Tech Stack
 
-**Frontend:**
-- Next.js 14+ (React framework)
-- React 18+ (UI library)
-- CSS3 (Custom styling with variables)
-- React Icons (Icon library)
+### Frontend
+- Next.js (App Router)  
+- React  
+- CSS3 (Custom variables & responsive design)  
+- Framer Motion  
+- React Icons  
 
-**Tools & Testing:**
-- ESLint (Code quality)
-- JavaScript ES6+
+### Testing & Quality
+- ESLint (Code quality enforcement)  
+- Lighthouse CI (Performance & accessibility testing)  
+- GitHub Actions (CI automation)  
 
-**Deployment:**
-- Vercel (Recommended)
-- GitHub Pages
+### Deployment
+- Vercel (Production hosting & CI/CD integration)  
 
-## 📁 Project Structure
+---
 
-```
-src/
-├── app/
-│   ├── globals.css           # Global styles & responsive breakpoints
-│   ├── layout.js             # Root layout component
-│   └── page.js               # Home page
-├── components/
-│   ├── layout/
-│   │   ├── Navbar.jsx        # Navigation header
-│   │   └── Footer.jsx        # Footer section
-│   ├── sections/
-│   │   ├── Hero.jsx          # Hero section
-│   │   ├── About.jsx         # About me with profile image
-│   │   ├── Skills.jsx        # Skills carousel
-│   │   ├── Experience.jsx    # Work experience
-│   │   ├── Projects.jsx      # Projects carousel
-│   │   ├── Resume.jsx        # Education & resume download
-│   │   └── Contact.jsx       # Contact information
-│   └── ui/
-│       ├── Button.jsx        # Reusable button component
-│       ├── Container.jsx     # Layout container
-│       └── SectionTitle.jsx  # Section title component
-├── data/
-│   ├── skills.js             # Skills categories
-│   ├── projects.js           # Project data
-│   ├── experience.js         # Work experience data
-│   └── resume.pdf            # Resume file
-└── lib/
-    └── utils.js              # Utility functions
-```
+## 📊 Performance & Quality Standards
 
-## 🚀 Getting Started
+This project is continuously validated against:
 
-### Prerequisites
-- Node.js 16+ 
-- npm or yarn
+- ⚡ Performance score (Lighthouse)  
+- ♿ Accessibility compliance (WCAG)  
+- 🔍 SEO optimization standards  
+- 🧪 Code quality rules (ESLint)  
+- 🚀 Production build stability  
 
-### Installation
+---
 
-1. **Clone the repository:**
-```bash
-git clone https://github.com/MEELAN2001/milan-portfolio.git
-cd milan-portfolio
-```
+## 🔧 Build & Deployment
 
-2. **Install dependencies:**
-```bash
-npm install
-```
-
-3. **Run the development server:**
-```bash
-npm run dev
-```
-
-4. **Open in browser:**
-Navigate to [http://localhost:3000](http://localhost:3000)
-
-## 📝 Customization
-
-### Update Personal Information
-
-**Edit `src/components/sections/About.jsx`:**
-- Change bio text
-- Update location, email, phone
-- Modify professional details
-
-**Edit `src/data/skills.js`:**
-- Add/remove skill categories
-- Update technology lists
-
-**Edit `src/data/projects.js`:**
-- Add new projects
-- Update GitHub links and descriptions
-
-**Edit `src/data/experience.js`:**
-- Update work experience
-- Add education details
-
-### Add Resume
-
-Replace `public/Milan_Resume.pdf` with your own resume file. The download link is configured in [src/components/sections/Resume.jsx](src/components/sections/Resume.jsx).
-
-### Update Social Links
-
-Edit `src/components/sections/Contact.jsx`:
-- LinkedIn profile URL
-- GitHub profile URL
-- Facebook profile URL
-
-## 🎨 Design Features
-
-**Color Scheme:**
-- Primary Accent: `#e85d04` (Orange)
-- Secondary Accent: `#b54a00` (Dark Orange)
-- Background: `#fafaf8` (Light cream)
-- Cards: `#f3f2ee` (Light beige)
-
-**Typography:**
-- Display Font: Fraunces (serif)
-- Mono Font: Space Mono (monospace)
-
-**Responsive Breakpoints:**
-- Desktop: 1200px+
-- Tablet: 768px - 1199px
-- Mobile: 320px - 767px
-
-## 📊 Sections Overview
-
-| Section | Description |
-|---------|------------|
-| **Hero** | Welcome message with CTA buttons |
-| **About** | Profile picture, bio, and contact details |
-| **Skills** | Interactive carousel of technical skills |
-| **Experience** | Professional work experience timeline |
-| **Projects** | Carousel showcasing completed projects with links |
-| **Resume** | Education and resume download button |
-| **Contact** | Social media links and contact information |
-
-## 🎯 Key Components
-
-### Skills Carousel
-- One skill category at a time
-- Left/right arrow navigation
-- Dot indicators for position tracking
-- Smooth slide animations
-
-### Projects Carousel
-- Full project details (title, description, stack, links)
-- Navigation arrows
-- Dot indicators
-- GitHub repo and live demo links
-
-## 📱 Responsive Design
-
-All components are fully responsive with optimized layouts for:
-- ✅ Desktop (1200px+)
-- ✅ Tablet (768px - 1199px)
-- ✅ Mobile (320px - 767px)
-
-## 🔧 Build & Deploy
-
-### Build for Production
+### Production Build
 
 ```bash
 npm run build
 ```
 
-### Deploy to Vercel
+### 🔧 Deployment Workflow
 
-1. Push to GitHub
-2. Connect repository to Vercel
-3. Automatic deployments on push
+Push changes to main
+GitHub Actions runs CI checks
+Vercel automatically deploys updates
 
-[Learn more about Vercel Deployment](https://vercel.com/docs)
+## 📞 Contact
 
-### Deploy to GitHub Pages
+- **Email:** mailmilan.bomjan@gmail.com  
+- **Phone:** +977 9841907159  
+- **Location:** Kathmandu, Nepal  
+- **LinkedIn:** https://linkedin.com/in/milan-bomjan-tamang  
+- **GitHub:** https://github.com/MEELAN2001  
 
-```bash
-npm run export
-# Upload /out folder to GitHub Pages
-```
+---
+## 🏁 Project Status
 
-## 📞 Contact Information
-
-- **Email:** mailmilan.bomjan@gmail.com
-- **Phone:** +977 9841907159
-- **Location:** Kathmandu, Nepal
-- **LinkedIn:** [milan-bomjan-tamang](https://linkedin.com/in/milan-bomjan-tamang-918167239/)
-- **GitHub:** [@MEELAN2001](https://github.com/MEELAN2001)
-
-## 📄 License
-
-This project is open source and available under the MIT License.
-
-## 🤝 Contributing
-
-Feel free to fork this project, make improvements, and submit pull requests. Any suggestions and feedback are welcome!
-
-## 🙏 Acknowledgments
-
-- Next.js team for the amazing framework
-- React community for excellent libraries
-- Vercel for hosting and deployment tools
-- Font designers for Fraunces and Space Mono
+🟢 CI Pipeline: Active  
+🟢 Deployment: Automated via Vercel  
+🟢 Performance Monitoring: Lighthouse CI Enabled  
+🟢 Code Quality: ESLint enforced  
 
 ---
 
-**Made with ❤️ by Milan Bomjan**
+## ⭐ Key Highlights
+
+This project demonstrates:
+
+- Real-world CI/CD implementation  
+- QA Automation engineering mindset (SDET-level thinking)  
+- Performance engineering & optimization  
+- Production-grade Next.js architecture  
+- Automated testing & deployment workflows  
