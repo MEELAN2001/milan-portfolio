@@ -5,66 +5,65 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import { skillCategories } from '@/data/skills';
 
 export default function Skills() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [hoveredCard, setHoveredCard] = useState(null);
 
-  const goToPrevious = () => {
-    setCurrentIndex((prev) => 
-      prev === 0 ? skillCategories.length - 1 : prev - 1
-    );
+  const getCardStyle = (index) => {
+    const totalCards = skillCategories.length;
+    const centerIndex = (totalCards - 1) / 2;
+    const offset = index - centerIndex;
+    const angle = offset * 15; // 15 degrees per card
+    const yOffset = Math.abs(offset) * 25; // Vertical stagger
+    
+    if (hoveredCard === index) {
+      return {
+        transform: `rotateZ(0deg) translateY(-80px) scale(1.05)`,
+        zIndex: 1000,
+      };
+    }
+
+    return {
+      transform: `rotateZ(${angle}deg) translateY(${yOffset}px)`,
+      zIndex: totalCards - Math.abs(offset),
+    };
   };
-
-  const goToNext = () => {
-    setCurrentIndex((prev) => 
-      prev === skillCategories.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const currentSkill = skillCategories[currentIndex];
 
   return (
     <section id="skills">
       <SectionTitle num="02" title="Technical Skills" />
 
-      <div className="skills-carousel">
-        <button 
-          className="carousel-arrow carousel-arrow-left" 
-          onClick={goToPrevious}
-          aria-label="Previous skill"
-        >
-          ←
-        </button>
+      <div className="skills-hand-container">
+        <div className="skills-hand-wrapper">
+          {skillCategories.map((skill, index) => (
+            <div
+              key={skill.id}
+              className="skill-card-hand"
+              style={getCardStyle(index)}
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              <div className="skill-card-hand-inner">
+                {/* Front of card */}
+                <div className="skill-card-hand-front">
+                  <div className="skill-card-hand-icon">{skill.icon}</div>
+                  <div className="skill-card-hand-title">{skill.title}</div>
+                </div>
 
-        <div className="skills-carousel-container">
-          <div className="skill-card-carousel">
-            <div className="skill-card-icon">{currentSkill.icon}</div>
-            <div className="skill-card-title">{currentSkill.title}</div>
-            <div className="skill-tags">
-              {currentSkill.items.map((item) => (
-                <span key={item} className="skill-tag">{item}</span>
-              ))}
+                {/* Back of card - Details */}
+                <div className="skill-card-hand-back">
+                  <h4>{skill.title}</h4>
+                  <div className="skill-details-list">
+                    {skill.items.map((item) => (
+                      <span key={item} className="skill-detail-tag">{item}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
-
-        <button 
-          className="carousel-arrow carousel-arrow-right" 
-          onClick={goToNext}
-          aria-label="Next skill"
-        >
-          →
-        </button>
       </div>
 
-      <div className="carousel-indicators">
-        {skillCategories.map((_, index) => (
-          <button
-            key={index}
-            className={`indicator ${index === currentIndex ? 'active' : ''}`}
-            onClick={() => setCurrentIndex(index)}
-            aria-label={`Go to skill ${index + 1}`}
-          />
-        ))}
-      </div>
+      <p className="skills-hint">Hover over cards to see details</p>
     </section>
   );
 }
