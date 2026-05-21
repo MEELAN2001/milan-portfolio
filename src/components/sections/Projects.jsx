@@ -5,25 +5,10 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import { projects } from '@/data/projects';
 
 export default function Projects() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const goToPrevious = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? projects.length - 1 : prev - 1
-    );
-  };
-
-  const goToNext = () => {
-    setCurrentIndex((prev) =>
-      prev === projects.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const currentProject = projects[currentIndex];
+  const [expandedCard, setExpandedCard] = useState(null);
 
   return (
     <section id="projects">
-
       {/* SEO HEADER BLOCK (IMPORTANT FOR GOOGLE) */}
       <div className="projects-seo-intro">
         <h2>QA Automation Projects</h2>
@@ -35,88 +20,72 @@ export default function Projects() {
 
       <SectionTitle num="03" title="Projects" />
 
-      <div className="projects-carousel">
+      <div className="projects-grid-container">
+        <div className="projects-grid">
+          {projects.map((project, index) => (
+            <div
+              key={project.id}
+              className={`project-grid-card ${expandedCard === index ? 'expanded' : ''}`}
+              onMouseEnter={() => setExpandedCard(index)}
+              onMouseLeave={() => setExpandedCard(null)}
+              onClick={() => setExpandedCard(expandedCard === index ? null : index)}
+            >
+              {/* Card Number & Title */}
+              <div className="project-card-header">
+                <div className="project-card-number">{project.num}</div>
+                <h3 className="project-card-title">{project.title}</h3>
+              </div>
 
-        <button
-          className="carousel-arrow carousel-arrow-left"
-          onClick={goToPrevious}
-          aria-label="Previous project"
-        >
-          ←
-        </button>
+              {/* Card Description */}
+              <div className="project-card-content">
+                <p className="project-card-desc">{project.description}</p>
+              </div>
 
-        <div className="projects-carousel-container">
-          <div className="project-card-carousel">
+              {/* SEO HIDDEN CONTEXT */}
+              <div className="sr-only">
+                QA Automation Engineer project using Playwright, Cypress, JavaScript, API Testing, and CI/CD automation.
+                Focus on end-to-end testing, regression testing, and scalable test framework design.
+              </div>
 
-            {/* SEO ENHANCED CONTENT */}
-            <div className="project-num">{currentProject.num}</div>
-            <div className="project-title">{currentProject.title}</div>
+              {/* Tech Stack */}
+              <div className="project-stack">
+                {project.stack.map((tech, idx) => (
+                  <span key={tech} className="stack-tag" style={{ animationDelay: `${idx * 0.05}s` }}>
+                    {tech}
+                  </span>
+                ))}
+              </div>
 
-            <p className="project-desc">
-              {currentProject.description}
-            </p>
+              {/* Links */}
+              <div className="project-links">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    GitHub Repo →
+                  </a>
+                )}
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    Live Demo →
+                  </a>
+                )}
+              </div>
 
-            {/* SEO HIDDEN CONTEXT (IMPORTANT BOOST) */}
-            <div className="sr-only">
-              QA Automation Engineer project using Playwright, Cypress, JavaScript, API Testing, and CI/CD automation.
-              Focus on end-to-end testing, regression testing, and scalable test framework design.
+              {/* Card Accent Line */}
+              <div className="project-card-accent"></div>
             </div>
-
-            <div className="project-stack">
-              {currentProject.stack.map((tech) => (
-                <span key={tech} className="stack-tag">
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            <div className="project-links">
-              {currentProject.github && (
-                <a
-                  href={currentProject.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-link"
-                >
-                  GitHub Repo →
-                </a>
-              )}
-              {currentProject.live && (
-                <a
-                  href={currentProject.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-link"
-                >
-                  Live Demo →
-                </a>
-              )}
-            </div>
-
-          </div>
+          ))}
         </div>
-
-        <button
-          className="carousel-arrow carousel-arrow-right"
-          onClick={goToNext}
-          aria-label="Next project"
-        >
-          →
-        </button>
-
       </div>
-
-      <div className="carousel-indicators">
-        {projects.map((_, index) => (
-          <button
-            key={index}
-            className={`indicator ${index === currentIndex ? 'active' : ''}`}
-            onClick={() => setCurrentIndex(index)}
-            aria-label={`Go to project ${index + 1}`}
-          />
-        ))}
-      </div>
-
     </section>
   );
 }
