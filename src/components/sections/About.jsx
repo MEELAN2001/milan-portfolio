@@ -29,13 +29,13 @@ export default function About() {
 
               <p>
                 I&apos;m a <strong>QA Automation Engineer</strong> based in Kathmandu, Nepal, specializing in
-                <strong> Playwright, Cypress, API Testing, and CI/CD automation using JavaScript</strong>.
+                <strong> Playwright, Cypress, API Testing, Performance Testing (K6 & JMeter), CI/CD automation using JavaScript</strong>.
                 I focus on building scalable and maintainable test automation frameworks that improve software quality and release confidence.
               </p>
 
               <p>
                 I design and implement <strong>end-to-end automation testing solutions</strong>, including UI automation, API validation,
-                and regression testing integrated into CI/CD pipelines. My engineering approach follows modern QA practices such as
+                performance testing, and regression testing integrated into CI/CD pipelines. My engineering approach follows modern QA practices such as
                 Page Object Model (POM), reusable test architecture, and modular framework design.
               </p>
 

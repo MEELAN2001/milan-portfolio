@@ -10,7 +10,7 @@ export default function Hero() {
 
         {/* SEO TAG */}
         <p className="hero-tag">
-          QA Automation Engineer | Playwright | Cypress | API Testing | CI/CD
+          QA Automation Engineer | Playwright | Cypress | API Testing | Performance Testing | CI/CD
         </p>
 
         {/* NAME (SEO STRONG) */}
@@ -22,13 +22,13 @@ export default function Hero() {
 
         {/* ROLE KEYWORD LINE */}
         <p className="hero-subtitle">
-          QA Automation Engineering · Test Automation · <span>CI/CD Integration</span>
+          QA Automation Engineering · Performance Testing · <span>CI/CD Integration</span>
         </p>
 
         {/* SEO DESCRIPTION (IMPORTANT PART) */}
         <p className="hero-desc">
-          I am a QA Automation Engineer specializing in Playwright, Cypress, API Testing, and CI/CD automation using JavaScript. 
-          I build scalable test automation frameworks that improve software quality, reduce manual testing effort, and ensure reliable releases.
+          I am a QA Automation Engineer specializing in Playwright, Cypress, API Testing, Performance Testing (K6 & JMeter), and CI/CD automation using JavaScript. 
+          I build scalable test automation frameworks and conduct performance testing to improve software quality, reduce manual testing effort, and ensure reliable releases.
 
           <span className="cursor" />
         </p>

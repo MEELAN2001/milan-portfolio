@@ -3,7 +3,7 @@ export const skillCategories = [
     id: 1,
     icon: '🧪',
     title: 'Testing Tools',
-    items: ['Playwright', 'Cypress', 'Postman', 'JMeter', 'Appium', 'Maestro'],
+    items: ['Playwright', 'Cypress', 'Postman', 'JMeter', 'K6', 'Appium', 'Maestro'],
   },
   {
     id: 2,
@@ -14,6 +14,7 @@ export const skillCategories = [
       'Manual Testing',
       'API Testing',
       'API Automation',
+      'Performance Testing',
       'Regression Testing',
       'Smoke Testing',
       'Sanity Testing',
