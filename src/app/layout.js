@@ -1,5 +1,7 @@
 import "./globals.css";
 
+const baseURL = "https://milanbomjantamang.com.np";
+
 export const metadata = {
   title: "Milan Bomjan | QA Automation & Performance Testing Engineer | Playwright | K6 | JMeter",
 
@@ -29,7 +31,7 @@ export const metadata = {
   authors: [{ name: "Milan Bomjan Tamang" }],
   creator: "Milan Bomjan Tamang",
 
-  metadataBase: new URL("https://milanbomjantamang.com.np"),
+  metadataBase: new URL(baseURL),
 
   alternates: {
     canonical: "/"
@@ -39,7 +41,7 @@ export const metadata = {
     title: "Milan Bomjan | QA Automation & Performance Testing Engineer | Playwright | K6 | JMeter",
     description:
       "QA Automation Engineer specializing in Playwright, Cypress, API Testing, Performance Testing (K6 & JMeter), CI/CD automation, and scalable test framework design using JavaScript.",
-    url: "https://milanbomjantamang.com.np",
+    url: baseURL,
     siteName: "Milan Bomjan Portfolio",
     type: "website",
     locale: "en_US",
