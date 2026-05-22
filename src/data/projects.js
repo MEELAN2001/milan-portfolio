@@ -38,4 +38,14 @@ export const projects = [
     stack: ['Django', 'Python', 'Playwright', 'System Testing'],
     github: 'https://github.com/utsav0514/Sika_ved.git', 
   },
+  {
+    id: 5,
+    num: '05',
+    title: 'Milan Bomjan - QA Automation Engineer Portfolio',
+    description:
+      'A modern portfolio website showcasing QA automation expertise. Demonstrates production CI/CD workflows using GitHub Actions, automated code quality checks with ESLint, performance testing with K6 and JMeter, and automated deployment via Vercel.',
+    stack: ['Next.js', 'React', 'JavaScript', 'GitHub Actions', 'K6', 'JMeter', 'ESLint'],
+    github: 'https://github.com/MEELAN2001/milan-portfolio.git',
+    live: 'https://milanbomjantamang.com.np',
+  },
 ];
