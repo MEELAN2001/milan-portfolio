@@ -28,20 +28,18 @@ export default function About() {
             <div className="about-text">
 
               <p>
-                I&apos;m a <strong>QA Automation Engineer</strong> based in Kathmandu, Nepal, specializing in
-                <strong> Playwright, Cypress, API Testing, Performance Testing (K6 & JMeter), CI/CD automation using JavaScript</strong>.
-                I focus on building scalable and maintainable test automation frameworks that improve software quality and release confidence.
+                I&apos;m a <strong>QA Automation Engineer</strong> based in Kathmandu, Nepal, focused on building scalable test automation frameworks using
+                <strong> Playwright, JavaScript, API testing, and CI/CD pipelines</strong>.
+                My approach: eliminate manual testing bottlenecks, improve release confidence, and architect maintainable testing systems.
               </p>
 
               <p>
-                I design and implement <strong>end-to-end automation testing solutions</strong>, including UI automation, API validation,
-                performance testing, and regression testing integrated into CI/CD pipelines. My engineering approach follows modern QA practices such as
-                Page Object Model (POM), reusable test architecture, and modular framework design.
+                I design and implement <strong>end-to-end automation solutions</strong> using Page Object Model (POM), modular framework architecture, and performance testing integration. 
+                From UI automation with Playwright to API validation and performance testing (K6 & JMeter), I solve real QA engineering challenges through modern tooling and best practices.
               </p>
 
               <p>
-                I also have a background in <strong>ethical hacking and security testing</strong>, which gives me a security-first mindset
-                when analyzing applications and designing test strategies across the SDLC.
+                With a background in <strong>security testing</strong>, I bring a security-first perspective to test design, helping teams build robust and reliable systems.
               </p>
 
             </div>

@@ -9,12 +9,12 @@ export default function Projects() {
 
   return (
     <section id="projects">
-      {/* SEO HEADER BLOCK (IMPORTANT FOR GOOGLE) */}
+      {/* SEO HEADER BLOCK (PROOF OF WORK) */}
       <div className="projects-seo-intro">
-        <h2>QA Automation Projects</h2>
+        <h2>QA Automation Projects - Proof of Engineering</h2>
         <p>
-          These projects demonstrate QA Automation Engineering using Playwright, Cypress, JavaScript, API Testing, and CI/CD integration.
-          Each project focuses on building scalable test automation frameworks, end-to-end testing, and real-world QA engineering practices.
+          These projects showcase real-world QA automation systems built with Playwright, JavaScript, API testing, and CI/CD integration.
+          Each demonstrates problem-solving approach: eliminating manual testing bottlenecks, building scalable frameworks, and improving release reliability.
         </p>
       </div>
 
