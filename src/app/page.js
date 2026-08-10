@@ -10,9 +10,14 @@ import Contact    from '@/components/sections/Contact';
 
 export default function Home() {
   return (
-    <main className="w-full">
+    <>
+      <a href="#main" className="skip-link">Skip to content</a>
+
+      {/* <nav> and <footer> are siblings of <main>, not children of it —
+          landmark nesting matters to both screen readers and crawlers. */}
       <Navbar />
-      <div className="container mx-auto px-4 py-8 space-y-12">
+
+      <main id="main">
         <Hero />
         <About />
         <Experience />
@@ -20,8 +25,9 @@ export default function Home() {
         <Projects />
         <Resume />
         <Contact />
-      </div>
+      </main>
+
       <Footer />
-    </main>
+    </>
   );
 }

@@ -8,17 +8,33 @@ export default function Experience() {
 
       <div className="experience-list">
         {experiences.map((exp) => (
-          <div key={exp.id} className="exp-item">
+          <article key={exp.id} className="exp-item">
             <div className="exp-header">
-              <div className="exp-role">
+              <h3 className="exp-role">
                 {exp.role}
                 {exp.current && <span className="exp-current-badge">Current</span>}
-              </div>
+              </h3>
               <div className="exp-date">{exp.period}</div>
             </div>
+
             <div className="exp-company">
-              {exp.company} · {exp.location}
+              {exp.companyUrl ? (
+                <a
+                  href={exp.companyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="exp-company-link"
+                >
+                  {exp.company}
+                </a>
+              ) : (
+                exp.company
+              )}
+              {' · '}
+              {exp.location}
+              {exp.remote && <span className="exp-remote-badge">Remote</span>}
             </div>
+
             {exp.bullets.length > 0 && (
               <ul className="exp-bullets">
                 {exp.bullets.map((b, i) => (
@@ -26,7 +42,7 @@ export default function Experience() {
                 ))}
               </ul>
             )}
-          </div>
+          </article>
         ))}
       </div>
     </section>

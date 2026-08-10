@@ -1,5 +1,5 @@
 import SectionTitle from '@/components/ui/SectionTitle';
-import Button from '@/components/ui/Button';
+import { site } from '@/data/site';
 
 const education = [
   {
@@ -52,7 +52,7 @@ export default function Resume() {
             Download Resume
           </a>
           <a
-            href="https://linkedin.com/in/milan-bomjan"
+            href={site.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="resume-btn resume-btn-secondary"

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Container from '@/components/ui/Container';
+import { site } from '@/data/site';
 
 export default function About() {
   return (
@@ -14,10 +15,11 @@ export default function About() {
           <div className="about-image">
             <Image
               src="/Profile.jpeg"
-              alt="QA Automation Engineer Milan Bomjan Tamang"
+              alt={`${site.name} — QA Automation Engineer specialising in Playwright, API and performance testing`}
               width={300}
               height={400}
               priority
+              sizes="(max-width: 768px) 60vw, 300px"
               className="profile-image"
             />
           </div>
@@ -28,18 +30,33 @@ export default function About() {
             <div className="about-text">
 
               <p>
-                I&apos;m a <strong>QA Automation Engineer</strong> based in Kathmandu, Nepal, focused on building scalable test automation frameworks using
-                <strong> Playwright, JavaScript, API testing, and CI/CD pipelines</strong>.
-                My approach: eliminate manual testing bottlenecks, improve release confidence, and architect maintainable testing systems.
+                I&apos;m a <strong>QA Automation Engineer</strong> at{' '}
+                <a
+                  href={site.employer.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="about-link"
+                >
+                  {site.employer.name}
+                </a>
+                , a {site.employer.city}, {site.employer.region} based company — working{' '}
+                <strong>remotely from {site.base.city}, {site.base.country}</strong> with a
+                distributed US team. I build scalable test automation using{' '}
+                <strong>Playwright, JavaScript, API testing, and CI/CD pipelines</strong>.
               </p>
 
               <p>
-                I design and implement <strong>end-to-end automation solutions</strong> using Page Object Model (POM), modular framework architecture, and performance testing integration. 
-                From UI automation with Playwright to API validation and performance testing (K6 & JMeter), I solve real QA engineering challenges through modern tooling and best practices.
+                I design and implement <strong>end-to-end automation solutions</strong> using
+                Page Object Model (POM), modular framework architecture, and integrated
+                performance testing. From UI automation with Playwright to API validation and
+                load testing with <strong>K6 and JMeter</strong>, I solve real QA engineering
+                problems with modern tooling and disciplined practices.
               </p>
 
               <p>
-                With a background in <strong>security testing</strong>, I bring a security-first perspective to test design, helping teams build robust and reliable systems.
+                With a background in <strong>security testing</strong>, I bring a
+                security-first perspective to test design — helping teams ship systems that
+                are reliable as well as correct.
               </p>
 
             </div>
@@ -49,17 +66,28 @@ export default function About() {
 
               <div className="about-detail-item">
                 <span className="about-detail-label">
-                  <span className="detail-icon">📍</span> Location
+                  <span className="detail-icon">💼</span> Currently
                 </span>
-                <span className="about-detail-value">Kathmandu, Nepal</span>
+                <span className="about-detail-value">
+                  QA Automation Engineer · {site.employer.name}
+                </span>
+              </div>
+
+              <div className="about-detail-item">
+                <span className="about-detail-label">
+                  <span className="detail-icon">📍</span> Based in
+                </span>
+                <span className="about-detail-value">
+                  {site.base.city}, {site.base.country} · Remote ({site.employer.countryCode} hours)
+                </span>
               </div>
 
               <div className="about-detail-item">
                 <span className="about-detail-label">
                   <span className="detail-icon">✉️</span> Email
                 </span>
-                <a href="mailto:mailmilan.bomjan@gmail.com" className="about-detail-value about-link">
-                  mailmilan.bomjan@gmail.com
+                <a href={`mailto:${site.email}`} className="about-detail-value about-link">
+                  {site.email}
                 </a>
               </div>
 
@@ -67,8 +95,11 @@ export default function About() {
                 <span className="about-detail-label">
                   <span className="detail-icon">📱</span> Phone
                 </span>
-                <a href="tel:+9779841907159" className="about-detail-value about-link">
-                  +977 9841907159
+                <a
+                  href={`tel:${site.phoneE164.replace(/-/g, '')}`}
+                  className="about-detail-value about-link"
+                >
+                  {site.phone}
                 </a>
               </div>
 
@@ -77,7 +108,7 @@ export default function About() {
                   <span className="detail-icon">✓</span> Status
                 </span>
                 <span className="about-detail-value about-status">
-                  <span className="status-dot" /> Open to QA Automation & SDET opportunities
+                  <span className="status-dot" /> Open to remote QA Automation &amp; SDET collaborations
                 </span>
               </div>
 
