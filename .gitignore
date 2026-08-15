@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local Claude Code skill data (third-party, not part of the site)
+.claude/skills/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

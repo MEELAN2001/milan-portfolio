@@ -1,4 +1,7 @@
+'use client';
+
 import SectionTitle from '@/components/ui/SectionTitle';
+import Reveal from '@/components/motion/Reveal';
 import { experiences } from '@/data/experience';
 
 export default function Experience() {
@@ -6,9 +9,17 @@ export default function Experience() {
     <section id="experience">
       <SectionTitle num="01" title="Experience" />
 
-      <div className="experience-list">
-        {experiences.map((exp) => (
-          <article key={exp.id} className="exp-item">
+      <div className="experience-timeline">
+        {experiences.map((exp, i) => (
+          <Reveal
+            as="article"
+            key={exp.id}
+            className="exp-item"
+            delay={Math.min(i * 0.08, 0.32)}
+            y={28}
+          >
+            <span className="exp-timeline-dot" aria-hidden="true" />
+
             <div className="exp-header">
               <h3 className="exp-role">
                 {exp.role}
@@ -37,12 +48,12 @@ export default function Experience() {
 
             {exp.bullets.length > 0 && (
               <ul className="exp-bullets">
-                {exp.bullets.map((b, i) => (
-                  <li key={i}>{b}</li>
+                {exp.bullets.map((b, idx) => (
+                  <li key={idx}>{b}</li>
                 ))}
               </ul>
             )}
-          </article>
+          </Reveal>
         ))}
       </div>
     </section>

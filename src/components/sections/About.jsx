@@ -1,6 +1,11 @@
+'use client';
+
 import Image from 'next/image';
+import { Briefcase, MapPin, Mail, Phone, CheckCircle2 } from 'lucide-react';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Container from '@/components/ui/Container';
+import TiltCard from '@/components/motion/TiltCard';
+import Reveal from '@/components/motion/Reveal';
 import { site } from '@/data/site';
 
 export default function About() {
@@ -12,22 +17,25 @@ export default function About() {
         <div className="about-wrapper">
 
           {/* IMAGE */}
-          <div className="about-image">
-            <Image
-              src="/Profile.jpeg"
-              alt={`${site.name} — QA Automation Engineer specialising in Playwright, API and performance testing`}
-              width={300}
-              height={400}
-              priority
-              sizes="(max-width: 768px) 60vw, 300px"
-              className="profile-image"
-            />
-          </div>
+          <Reveal as="div" className="about-image" y={16}>
+            <TiltCard className="profile-tilt" max={7} glare>
+              <Image
+                src="/profile.jpg"
+                alt={`${site.name} — QA Automation Engineer specialising in Playwright, API and performance testing`}
+                width={400}
+                height={490}
+                priority
+                sizes="(max-width: 768px) 60vw, 350px"
+                className="profile-image"
+              />
+              <span className="profile-frame" aria-hidden="true" />
+            </TiltCard>
+          </Reveal>
 
           {/* TEXT CONTENT */}
           <div className="about-right">
 
-            <div className="about-text">
+            <Reveal as="div" className="about-text" delay={0.05}>
 
               <p>
                 I&apos;m a <strong>QA Automation Engineer</strong> at{' '}
@@ -59,14 +67,15 @@ export default function About() {
                 are reliable as well as correct.
               </p>
 
-            </div>
+            </Reveal>
 
             {/* DETAILS */}
-            <div className="about-details">
+            <Reveal as="div" className="about-details" delay={0.1}>
 
               <div className="about-detail-item">
                 <span className="about-detail-label">
-                  <span className="detail-icon">💼</span> Currently
+                  <Briefcase className="detail-icon" size={15} strokeWidth={2} />
+                  <span>Currently</span>
                 </span>
                 <span className="about-detail-value">
                   QA Automation Engineer · {site.employer.name}
@@ -75,7 +84,8 @@ export default function About() {
 
               <div className="about-detail-item">
                 <span className="about-detail-label">
-                  <span className="detail-icon">📍</span> Based in
+                  <MapPin className="detail-icon" size={15} strokeWidth={2} />
+                  <span>Based in</span>
                 </span>
                 <span className="about-detail-value">
                   {site.base.city}, {site.base.country} · Remote ({site.employer.countryCode} hours)
@@ -84,7 +94,8 @@ export default function About() {
 
               <div className="about-detail-item">
                 <span className="about-detail-label">
-                  <span className="detail-icon">✉️</span> Email
+                  <Mail className="detail-icon" size={15} strokeWidth={2} />
+                  <span>Email</span>
                 </span>
                 <a href={`mailto:${site.email}`} className="about-detail-value about-link">
                   {site.email}
@@ -93,7 +104,8 @@ export default function About() {
 
               <div className="about-detail-item">
                 <span className="about-detail-label">
-                  <span className="detail-icon">📱</span> Phone
+                  <Phone className="detail-icon" size={15} strokeWidth={2} />
+                  <span>Phone</span>
                 </span>
                 <a
                   href={`tel:${site.phoneE164.replace(/-/g, '')}`}
@@ -105,14 +117,16 @@ export default function About() {
 
               <div className="about-detail-item">
                 <span className="about-detail-label">
-                  <span className="detail-icon">✓</span> Status
+                  <CheckCircle2 className="detail-icon" size={15} strokeWidth={2} />
+                  <span>Status</span>
                 </span>
                 <span className="about-detail-value about-status">
-                  <span className="status-dot" /> Open to remote QA Automation &amp; SDET collaborations
+                  <span className="status-dot" />
+                  <span>Open to remote QA Automation &amp; SDET collaborations</span>
                 </span>
               </div>
 
-            </div>
+            </Reveal>
 
           </div>
         </div>

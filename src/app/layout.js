@@ -127,9 +127,9 @@ function buildJsonLd() {
         image: {
           '@type': 'ImageObject',
           '@id': absolute('/#profile-photo'),
-          url: absolute('/Profile.jpeg'),
-          width: 300,
-          height: 400,
+          url: absolute('/profile.jpg'),
+          width: 400,
+          height: 490,
           caption: site.name,
         },
         email: `mailto:${site.email}`,
@@ -210,13 +210,23 @@ function buildJsonLd() {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="no-js" suppressHydrationWarning>
       <body>
         <script
           type="application/ld+json"
           // Structured data must ship in the HTML for crawlers that do not
           // execute JS, so it is inlined rather than loaded via next/script.
           dangerouslySetInnerHTML={{ __html: JSON.stringify(buildJsonLd()) }}
+        />
+        <script
+          // Runs synchronously before first paint. Scroll-reveal animations
+          // (see Reveal.jsx) render server-side with opacity:0, so if this
+          // never fires — script blocked, JS disabled — .no-js's CSS
+          // override (globals.css) keeps that content visible instead of
+          // permanently hidden.
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.remove('no-js')",
+          }}
         />
         {children}
       </body>

@@ -1,7 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import { ExternalLink } from 'lucide-react';
+import { FaGithubSquare } from 'react-icons/fa';
 import SectionTitle from '@/components/ui/SectionTitle';
+import TiltCard from '@/components/motion/TiltCard';
+import { RevealGroup, revealItem } from '@/components/motion/Reveal';
 import { projects } from '@/data/projects';
 
 export default function Projects() {
@@ -21,10 +25,13 @@ export default function Projects() {
       <SectionTitle num="03" title="Projects" />
 
       <div className="projects-grid-container">
-        <div className="projects-grid">
+        <RevealGroup as="div" className="projects-grid" stagger={0.08}>
           {projects.map((project, index) => (
-            <div
+            <TiltCard
               key={project.id}
+              variants={revealItem}
+              max={4}
+              glare={false}
               className={`project-grid-card ${expandedCard === index ? 'expanded' : ''}`}
               onMouseEnter={() => setExpandedCard(index)}
               onMouseLeave={() => setExpandedCard(null)}
@@ -59,7 +66,8 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className="project-link"
                   >
-                    GitHub Repo →
+                    <FaGithubSquare size={16} />
+                    <span>GitHub Repo</span>
                   </a>
                 )}
                 {project.live && (
@@ -69,16 +77,17 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className="project-link"
                   >
-                    Live Demo →
+                    <ExternalLink size={15} strokeWidth={2} />
+                    <span>Live Demo</span>
                   </a>
                 )}
               </div>
 
               {/* Card Accent Line */}
               <div className="project-card-accent"></div>
-            </div>
+            </TiltCard>
           ))}
-        </div>
+        </RevealGroup>
       </div>
     </section>
   );

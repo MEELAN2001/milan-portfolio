@@ -1,10 +1,15 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { Phone } from 'lucide-react';
 import { FaLinkedin, FaFacebookSquare, FaGithubSquare } from 'react-icons/fa';
 import { IoIosMail } from 'react-icons/io';
+import Reveal, { RevealGroup, revealItem } from '@/components/motion/Reveal';
 import { site } from '@/data/site';
 
 const contactLinks = [
   { href: `mailto:${site.email}`, icon: IoIosMail, label: site.email },
-  { href: `tel:${site.phoneE164.replace(/-/g, '')}`, icon: '📞', label: site.phone },
+  { href: `tel:${site.phoneE164.replace(/-/g, '')}`, icon: Phone, label: site.phone },
   { href: site.socials.linkedin, icon: FaLinkedin, label: 'LinkedIn', external: true },
   { href: site.socials.github, icon: FaGithubSquare, label: 'GitHub', external: true },
   { href: site.socials.facebook, icon: FaFacebookSquare, label: 'Facebook', external: true },
@@ -13,7 +18,7 @@ const contactLinks = [
 export default function Contact() {
   return (
     <section id="contact" className="contact-section">
-      <div className="contact-inner">
+      <Reveal as="div" className="contact-inner" y={20}>
         <h2 className="contact-big">
           Let&apos;s work<br /><span>together.</span>
         </h2>
@@ -22,19 +27,21 @@ export default function Contact() {
           {site.base.city} with US teams. Open to remote QA automation roles, freelance
           testing engagements, and security collaborations.
         </p>
-        <div className="contact-links">
+        <RevealGroup as="div" className="contact-links" stagger={0.05} delay={0.15}>
           {contactLinks.map(({ href, icon: IconComponent, label, external }) => (
-            <a
+            <motion.a
               key={label}
+              variants={revealItem}
               href={href}
               className="contact-link"
               {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             >
-              {typeof IconComponent === 'function' ? <IconComponent /> : IconComponent} {label}
-            </a>
+              <IconComponent />
+              <span>{label}</span>
+            </motion.a>
           ))}
-        </div>
-      </div>
+        </RevealGroup>
+      </Reveal>
     </section>
   );
 }

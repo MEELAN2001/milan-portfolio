@@ -1,4 +1,9 @@
+'use client';
+
+import { Download, GraduationCap } from 'lucide-react';
+import { FaLinkedin } from 'react-icons/fa';
 import SectionTitle from '@/components/ui/SectionTitle';
+import Reveal, { RevealGroup, RevealItem, revealItem } from '@/components/motion/Reveal';
 import { site } from '@/data/site';
 
 const education = [
@@ -23,25 +28,26 @@ export default function Resume() {
     <section id="education">
       <SectionTitle num="04" title="Education" />
 
-      <div className="education-list">
+      <RevealGroup as="div" className="education-list" stagger={0.1}>
         {education.map((edu) => (
-          <div key={edu.id} className="edu-card">
+          <RevealItem key={edu.id} variants={revealItem} className="edu-card">
+            <GraduationCap className="edu-icon" size={20} strokeWidth={1.75} />
             <div className="edu-degree">{edu.degree}</div>
             <div className="edu-school">{edu.school}</div>
             <div className="edu-year">
               {edu.period} · {edu.location}
             </div>
-          </div>
+          </RevealItem>
         ))}
-      </div>
+      </RevealGroup>
 
       {/* Resume Download */}
-      <div className="resume-download">
+      <Reveal as="div" className="resume-download" delay={0.1}>
         <div className="resume-content">
           <h3 className="resume-heading">Want the full picture?</h3>
           <p className="resume-description">Download my resume to see detailed experience, projects, and technical skills.</p>
         </div>
-        
+
         <div className="resume-buttons">
           <a
             href="/Milan_Resume.pdf"
@@ -49,7 +55,8 @@ export default function Resume() {
             className="resume-btn resume-btn-primary"
             title="Download PDF"
           >
-            Download Resume
+            <Download size={16} strokeWidth={2} />
+            <span>Download Resume</span>
           </a>
           <a
             href={site.socials.linkedin}
@@ -58,10 +65,11 @@ export default function Resume() {
             className="resume-btn resume-btn-secondary"
             title="View on LinkedIn"
           >
-            LinkedIn
+            <FaLinkedin size={16} />
+            <span>LinkedIn</span>
           </a>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
