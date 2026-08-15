@@ -18,6 +18,24 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --shadow-md: 0 16px 40px -12px rgba(20, 18, 14, 0.18);
   --shadow-lg: 0 28px 70px -16px rgba(20, 18, 14, 0.24);
+
+  /* ─── BRAND GRADIENT (orange -> rose -> violet) ───
+     Two tiers per hue, both WCAG-checked against --bg (#fafaf8):
+     - vivid: for large text (>=24px), non-text UI (borders/icons, 3:1
+       floor), and backgrounds/blobs where nothing sits directly on top.
+     - -text variants: for small text and any white-on-gradient button,
+       each individually verified >=4.5:1 against both --bg and white.
+       vivid  vs bg: accent 3.35 | rose 3.38 | violet 4.05
+       text   vs bg: accent2 5.09 | rose-text 5.78 | violet-text 5.45
+       text  vs #fff: accent2 5.32 | rose-text 6.04 | violet-text 5.70 */
+  --rose: #ec4899;
+  --rose-text: #be185d;
+  --violet: #8b5cf6;
+  --violet-text: #7c3aed;
+
+  --gradient-brand: linear-gradient(135deg, var(--accent) 0%, var(--rose) 50%, var(--violet) 100%);
+  --gradient-brand-text: linear-gradient(135deg, var(--accent2) 0%, var(--rose-text) 50%, var(--violet-text) 100%);
+  --gradient-brand-dim: linear-gradient(135deg, #e85d0414 0%, #ec489914 50%, #8b5cf614 100%);
 }
 
 /* ─── ACCESSIBILITY: FOCUS + REDUCED MOTION ─── */
@@ -71,7 +89,7 @@ body::before {
 /* ─── SCROLLBAR ─── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: var(--gradient-brand); border-radius: 2px; }
 
 /* ─── NAV ─── */
 nav {
@@ -228,29 +246,62 @@ nav.nav-scrolled {
   opacity: 0.4;
 }
 
+/* ─── HERO MESH GRADIENT ───
+   Three slow-drifting radial blobs (orange/rose/violet) standing in for a
+   full mesh gradient — cheap (opacity+transform only, no filter/blur) and
+   respects prefers-reduced-motion via the global override above. */
 .hero-glow {
   position: absolute;
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, #e85d04 0%, transparent 70%);
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
   right: -200px;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0.08;
+  top: 40%;
+  opacity: 0.1;
   pointer-events: none;
+  animation: driftA 16s ease-in-out infinite;
 }
 
 .hero-glow-2 {
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: 460px;
+  height: 460px;
   border-radius: 50%;
-  background: radial-gradient(circle, #b54a00 0%, transparent 70%);
-  left: 10%;
-  bottom: -100px;
-  opacity: 0.06;
+  background: radial-gradient(circle, var(--violet) 0%, transparent 70%);
+  left: 6%;
+  bottom: -140px;
+  opacity: 0.08;
   pointer-events: none;
+  animation: driftB 20s ease-in-out infinite;
+}
+
+.hero-glow-3 {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--rose) 0%, transparent 70%);
+  left: 42%;
+  top: -120px;
+  opacity: 0.08;
+  pointer-events: none;
+  animation: driftC 18s ease-in-out infinite;
+}
+
+@keyframes driftA {
+  0%, 100% { transform: translate(0, -50%) scale(1); }
+  50% { transform: translate(-40px, calc(-50% + 30px)) scale(1.08); }
+}
+
+@keyframes driftB {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -25px) scale(1.06); }
+}
+
+@keyframes driftC {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-25px, 20px) scale(1.05); }
 }
 
 .hero-content {
@@ -288,7 +339,12 @@ nav.nav-scrolled {
 }
 
 .hero h1 .highlight {
-  color: var(--accent);
+  /* Large text (clamp 3-5.5rem) so the 3:1 WCAG floor applies, not 4.5:1 —
+     every stop in --gradient-brand clears that against --bg. */
+  background: var(--gradient-brand);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   position: relative;
   display: inline-block;
 }
@@ -325,7 +381,9 @@ nav.nav-scrolled {
   align-items: center;
   gap: 0.5rem;
   padding: 0.85rem 2rem;
-  background: var(--accent);
+  /* Black text clears 4.5:1 against every stop (4.96-6.00), so the full
+     vivid gradient is safe here without a darker/text-safe variant. */
+  background: var(--gradient-brand);
   color: #000;
   font-family: var(--font-mono);
   font-size: 0.8rem;
@@ -488,6 +546,13 @@ section {
   letter-spacing: 0.1em;
 }
 
+/* Cycle the brand hues across sections for rhythm — each id-scoped color
+   is one of the three already-verified >=4.5:1 "-text" safe tokens. */
+#experience .section-num,
+#education .section-num { color: var(--rose-text); }
+
+#skills .section-num { color: var(--violet-text); }
+
 .section-title {
   font-size: 2rem;
   font-weight: 800;
@@ -550,7 +615,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--accent-dim) 0%, transparent 100%);
+  background: var(--gradient-brand-dim);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -574,7 +639,7 @@ section {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+  background: linear-gradient(90deg, var(--accent) 0%, var(--rose) 55%, var(--violet) 100%);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -704,7 +769,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--accent-dim) 0%, transparent 100%);
+  background: var(--gradient-brand-dim);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -745,11 +810,27 @@ section {
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
+/* Cycle icon badges through the brand hues — decorative (icon shape carries
+   the meaning, not color), so the 3:1 non-text floor applies and every
+   vivid stop clears it against these light tinted backgrounds. */
+.skill-grid-card:nth-child(3n+2) .skill-card-icon {
+  background: #ec489918;
+  color: var(--rose);
+}
+
+.skill-grid-card:nth-child(3n+3) .skill-card-icon {
+  background: #8b5cf618;
+  color: var(--violet);
+}
+
 .skill-grid-card:hover .skill-card-icon {
   transform: scale(1.1) rotate(-4deg);
   background: var(--accent);
   color: #fff;
 }
+
+.skill-grid-card:nth-child(3n+2):hover .skill-card-icon { background: var(--rose); }
+.skill-grid-card:nth-child(3n+3):hover .skill-card-icon { background: var(--violet); }
 
 .skill-card-title {
   font-family: var(--font-mono);
@@ -829,7 +910,7 @@ section {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+  background: linear-gradient(90deg, var(--accent) 0%, var(--rose) 55%, var(--violet) 100%);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -953,7 +1034,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--accent-dim) 0%, transparent 100%);
+  background: var(--gradient-brand-dim);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -1089,7 +1170,7 @@ section {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+  background: linear-gradient(90deg, var(--accent) 0%, var(--rose) 55%, var(--violet) 100%);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -1419,7 +1500,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--accent-dim) 0%, transparent 100%);
+  background: var(--gradient-brand-dim);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -1443,7 +1524,7 @@ section {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+  background: linear-gradient(90deg, var(--accent) 0%, var(--rose) 55%, var(--violet) 100%);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -1512,7 +1593,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--accent-dim) 0%, transparent 100%);
+  background: var(--gradient-brand-dim);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -1536,7 +1617,7 @@ section {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+  background: linear-gradient(90deg, var(--accent) 0%, var(--rose) 55%, var(--violet) 100%);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -1992,7 +2073,7 @@ footer {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--accent-dim) 0%, transparent 100%);
+  background: var(--gradient-brand-dim);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -2016,7 +2097,7 @@ footer {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+  background: linear-gradient(90deg, var(--accent) 0%, var(--rose) 55%, var(--violet) 100%);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -2119,7 +2200,7 @@ footer {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--accent-dim) 0%, transparent 100%);
+  background: var(--gradient-brand-dim);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;

@@ -10,6 +10,7 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-glow" />
       <div className="hero-glow-2" />
+      <div className="hero-glow-3" />
 
       <div className="hero-inner">
         <div className="hero-content">

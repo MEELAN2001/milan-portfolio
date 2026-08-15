@@ -13,6 +13,9 @@ export const ogContentType = 'image/png';
 export const ogAlt = `${site.name} — ${site.roleLong}: Playwright, API and performance testing`;
 
 const ACCENT = '#e85d04';
+const ROSE = '#ec4899';
+const VIOLET = '#8b5cf6';
+const GRADIENT = `linear-gradient(135deg, ${ACCENT} 0%, ${ROSE} 50%, ${VIOLET} 100%)`;
 const BG = '#12110f';
 const TEXT = '#fafaf8';
 const MUTED = '#a8a396';
@@ -43,7 +46,7 @@ export function renderOgImage() {
             borderRadius: 760,
             // Satori has no blur filter, so keep the tint low enough that the
             // hard circle edge reads as a design element, not an artefact.
-            background: 'rgba(232, 93, 4, 0.11)',
+            backgroundImage: `linear-gradient(135deg, ${ACCENT}1c 0%, ${ROSE}1c 50%, ${VIOLET}1c 100%)`,
           }}
         />
         {/* left accent rule */}
@@ -54,13 +57,13 @@ export function renderOgImage() {
             top: 0,
             bottom: 0,
             width: 12,
-            background: ACCENT,
+            backgroundImage: GRADIENT,
           }}
         />
 
         {/* top: eyebrow */}
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <div style={{ width: 56, height: 3, background: ACCENT }} />
+          <div style={{ width: 56, height: 3, backgroundImage: GRADIENT }} />
           <div
             style={{
               marginLeft: 20,
