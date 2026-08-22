@@ -1,4 +1,5 @@
 import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
 import { site, absolute } from '@/data/site';
 import { experiences } from '@/data/experience';
 
@@ -229,6 +230,7 @@ export default function RootLayout({ children }) {
           }}
         />
         {children}
+        <Analytics />
       </body>
     </html>
   );
