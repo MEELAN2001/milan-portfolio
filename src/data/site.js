@@ -43,7 +43,7 @@ export const site = {
     github: 'https://github.com/MEELAN2001',
     linkedin: 'https://www.linkedin.com/in/milan-bomjan-tamang-918167239/',
     facebook: 'https://www.facebook.com/milan.bom/',
-    instagram: 'https://www.instagram.com/milan.bom/',
+    instagram: 'https://www.instagram.com/_me_drz_01/',
   },
 
   stats: {
