@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Phone } from 'lucide-react';
-import { FaLinkedin, FaFacebookSquare, FaGithubSquare } from 'react-icons/fa';
+import { FaLinkedin, FaFacebookSquare, FaGithubSquare, FaInstagramSquare } from 'react-icons/fa';
 import { IoIosMail } from 'react-icons/io';
 import Reveal, { RevealGroup, revealItem } from '@/components/motion/Reveal';
 import { site } from '@/data/site';
@@ -13,6 +13,7 @@ const contactLinks = [
   { href: site.socials.linkedin, icon: FaLinkedin, label: 'LinkedIn', external: true },
   { href: site.socials.github, icon: FaGithubSquare, label: 'GitHub', external: true },
   { href: site.socials.facebook, icon: FaFacebookSquare, label: 'Facebook', external: true },
+  { href: site.socials.instagram, icon: FaInstagramSquare, label: 'Instagram', external: true },
 ];
 
 export default function Contact() {

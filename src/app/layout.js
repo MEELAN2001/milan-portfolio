@@ -173,7 +173,7 @@ function buildJsonLd() {
           { '@type': 'Language', name: 'English' },
           { '@type': 'Language', name: 'Nepali' },
         ],
-        sameAs: [site.socials.github, site.socials.linkedin, site.socials.facebook],
+        sameAs: [site.socials.github, site.socials.linkedin, site.socials.facebook, site.socials.instagram],
       },
       {
         '@type': 'Organization',
