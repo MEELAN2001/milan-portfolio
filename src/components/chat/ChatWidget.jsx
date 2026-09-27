@@ -1,33 +1,40 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { useChat } from '@ai-sdk/react';
 import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
 import { site } from '@/data/site';
+import { GREETING, getBotReply } from '@/lib/chatbot';
 
-const GREETING = `Hi! I'm ${site.shortName}'s site assistant — ask me about his experience, projects, or availability for freelance work.`;
+let nextId = 1;
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
+  const [messages, setMessages] = useState([]);
+  const [typing, setTyping] = useState(false);
   const listRef = useRef(null);
-
-  const { messages, sendMessage, status } = useChat();
-
-  const busy = status === 'submitted' || status === 'streaming';
 
   useEffect(() => {
     if (listRef.current) {
       listRef.current.scrollTop = listRef.current.scrollHeight;
     }
-  }, [messages, open]);
+  }, [messages, typing, open]);
 
   function handleSubmit(e) {
     e.preventDefault();
     const text = input.trim();
-    if (!text || busy) return;
-    sendMessage({ text });
+    if (!text || typing) return;
+
+    setMessages((prev) => [...prev, { id: nextId++, role: 'user', text }]);
     setInput('');
+    setTyping(true);
+
+    // Small delay makes the reply feel conversational rather than instant.
+    setTimeout(() => {
+      const reply = getBotReply(text);
+      setMessages((prev) => [...prev, { id: nextId++, role: 'assistant', text: reply }]);
+      setTyping(false);
+    }, 450);
   }
 
   return (
@@ -50,19 +57,12 @@ export default function ChatWidget() {
             <div className="chat-bubble chat-bubble-assistant">{GREETING}</div>
 
             {messages.map((message) => (
-              <div
-                key={message.id}
-                className={`chat-bubble chat-bubble-${message.role}`}
-              >
-                {message.parts
-                  .filter((part) => part.type === 'text')
-                  .map((part, i) => (
-                    <span key={i}>{part.text}</span>
-                  ))}
+              <div key={message.id} className={`chat-bubble chat-bubble-${message.role}`}>
+                {message.text}
               </div>
             ))}
 
-            {busy && (
+            {typing && (
               <div className="chat-bubble chat-bubble-assistant chat-bubble-loading">
                 <Loader2 size={14} className="chat-spin" />
               </div>
@@ -76,9 +76,9 @@ export default function ChatWidget() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about Milan's work..."
               className="chat-input"
-              disabled={busy}
+              disabled={typing}
             />
-            <button type="submit" className="chat-send-btn" disabled={busy || !input.trim()} aria-label="Send message">
+            <button type="submit" className="chat-send-btn" disabled={typing || !input.trim()} aria-label="Send message">
               <Send size={16} />
             </button>
           </form>
