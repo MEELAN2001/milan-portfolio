@@ -2,6 +2,7 @@ import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import { site, absolute } from '@/data/site';
 import { experiences } from '@/data/experience';
+import ChatWidget from '@/components/chat/ChatWidget';
 
 const TITLE = 'Milan Bomjan | QA Automation Engineer — Playwright, K6, CI/CD';
 const DESCRIPTION =
@@ -233,6 +234,7 @@ export default function RootLayout({ children }) {
           }}
         />
         {children}
+        <ChatWidget />
         <Analytics />
       </body>
     </html>
