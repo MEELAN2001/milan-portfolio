@@ -2862,6 +2862,42 @@ footer {
   gap: 0.9rem;
 }
 
+.chat-toggle-shell {
+  position: relative;
+  display: inline-flex;
+}
+
+.chat-toggle-glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  filter: blur(16px);
+  opacity: 0.5;
+  z-index: 0;
+  animation: chat-glow-pulse 2.6s ease-in-out infinite;
+}
+
+@keyframes chat-glow-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.7;
+  }
+}
+
+.chat-toggle-wrap {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  border-radius: 50%;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
 .chat-toggle-btn {
   width: 56px;
   height: 56px;
@@ -2874,11 +2910,6 @@ footer {
   justify-content: center;
   cursor: pointer;
   box-shadow: var(--shadow-lg);
-  transition: transform 0.2s var(--ease-out);
-}
-
-.chat-toggle-btn:hover {
-  transform: translateY(-2px) scale(1.03);
 }
 
 .chat-panel {
@@ -2908,13 +2939,30 @@ footer {
   gap: 0.6rem;
 }
 
-.chat-status-dot {
-  width: 8px;
-  height: 8px;
+.chat-orb {
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: #16a34a;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.8), transparent 45%),
+    var(--gradient-brand);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.25);
+  animation: chat-orb-pulse 2.4s ease-in-out infinite;
+  transition: animation-duration 0.2s ease;
+}
+
+.chat-orb-active {
+  animation-duration: 0.9s;
+}
+
+@keyframes chat-orb-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
 }
 
 .chat-header-name {

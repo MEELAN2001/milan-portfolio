@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { MessageCircle, X, Send } from 'lucide-react';
 import { site } from '@/data/site';
 import { GREETING, getBotReply } from '@/lib/chatbot';
+import TiltCard from '@/components/motion/TiltCard';
 
 let nextId = 1;
 const THINK_DELAY_MS = 600;
@@ -74,10 +75,12 @@ export default function ChatWidget() {
           >
             <div className="chat-panel-header">
               <div className="chat-header-info">
-                <span className="chat-status-dot" aria-hidden="true" />
+                <span className={`chat-orb ${input.trim() ? 'chat-orb-active' : ''}`} aria-hidden="true" />
                 <div>
                   <div className="chat-header-name">{site.shortName}&apos;s Assistant</div>
-                  <div className="chat-header-sub">Ask about work, projects, or availability</div>
+                  <div className="chat-header-sub">
+                    {input.trim() ? 'Listening…' : 'Ask about work, projects, or availability'}
+                  </div>
                 </div>
               </div>
               <button
@@ -134,14 +137,19 @@ export default function ChatWidget() {
         )}
       </AnimatePresence>
 
-      <button
-        type="button"
-        className="chat-toggle-btn"
-        onClick={() => setOpen((v) => !v)}
-        aria-label={open ? 'Close chat' : 'Open chat with assistant'}
-      >
-        {open ? <X size={22} /> : <MessageCircle size={22} />}
-      </button>
+      <div className="chat-toggle-shell">
+        {!open && <span className="chat-toggle-glow" aria-hidden="true" />}
+        <TiltCard className="chat-toggle-wrap" max={14} glare>
+          <button
+            type="button"
+            className="chat-toggle-btn"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? 'Close chat' : 'Open chat with assistant'}
+          >
+            {open ? <X size={22} /> : <MessageCircle size={22} />}
+          </button>
+        </TiltCard>
+      </div>
     </div>
   );
 }
