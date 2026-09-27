@@ -10,7 +10,7 @@ export async function POST(request) {
   const result = streamText({
     model: anthropic('claude-haiku-4-5-20251001'),
     system: buildSystemPrompt(),
-    messages: convertToModelMessages(messages),
+    messages: await convertToModelMessages(messages),
   });
 
   return result.toUIMessageStreamResponse();
